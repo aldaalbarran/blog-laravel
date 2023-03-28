@@ -27,8 +27,8 @@
 
             {{-- logotipo --}}
             <a href="/" class="flex flex-shrink-0 items-center">
-                <img class="block h-8 w-auto lg:hidden" src="img/logo.svg" alt="Your Company">
-                <img class="hidden h-8 w-auto lg:block" src="img/logo.svg" alt="Your Company">
+                <img class="block h-8 w-auto lg:hidden" src=" {{ asset('img/logo.svg') }}" alt="Your Company">
+                <img class="hidden h-8 w-auto lg:block" src=" {{ asset('img/logo.svg') }}" alt="Your Company">
             </a>
 
             {{--menu lg--}}
