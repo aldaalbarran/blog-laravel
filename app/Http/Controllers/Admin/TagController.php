@@ -23,13 +23,14 @@ class TagController extends Controller
     public function create()
     {
         $colors = [
-            'red' => 'Color rojo',
-            'yellow' => 'Color amarillo',
-            'green' => 'Color verde',
-            'blue' => 'Color azul',
-            'indigo' => 'Color indigo',
-            'purple' => 'Color morado',
-            'pink' => 'Color rosado'
+            '#4b5563' => 'Color gris',
+            '#dc2626' => 'Color rojo',
+            '#ca8a04' => 'Color amarillo',
+            '#16a34a' => 'Color verde',
+            '#2563eb' => 'Color azul',
+            '#4f46e5' => 'Color indigo',
+            '#9333ea' => 'Color morado',
+            '#db2777' => 'Color rosado'
         ];
 
         return view('admin.tags.create', compact('colors'));
@@ -64,13 +65,14 @@ class TagController extends Controller
     public function edit(Tag $tag)
     {
         $colors = [
-            'red' => 'Color rojo',
-            'yellow' => 'Color amarillo',
-            'green' => 'Color verde',
-            'blue' => 'Color azul',
-            'indigo' => 'Color indigo',
-            'purple' => 'Color morado',
-            'pink' => 'Color rosado'
+            '#4b5563' => 'Color gris',
+            '#dc2626' => 'Color rojo',
+            '#ca8a04' => 'Color amarillo',
+            '#16a34a' => 'Color verde',
+            '#2563eb' => 'Color azul',
+            '#4f46e5' => 'Color indigo',
+            '#9333ea' => 'Color morado',
+            '#db2777' => 'Color rosado'
         ];
 
         return view('admin.tags.edit', compact('tag', 'colors'));

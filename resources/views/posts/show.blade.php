@@ -3,18 +3,22 @@
         <h1 class="text-4xl font-bold text-gray-600">{{ $post->name }}</h1>
 
         <div class="text-lg text-gray-500 mb-2">
-            {{ $post->extract }}
+            {!!$post->extract!!}
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-2">
             <div class="lg:col-span-2">
                 {{-- Contenido Princpal --}}
                 <figure>
-                    <img class="w-full h-80 object-cover object-center" src="{{ Storage::url($post->image->url) }}" alt="image">
+                    @if ($post->image)
+                        <img class="w-full h-80 object-cover object-center" src="{{ Storage::url($post->image->url) }}" alt="image">
+                    @else
+                        <img class="w-full h-72 object-cover object-center" src="{{ asset('img/default.svg') }}" alt="image">
+                    @endif
                 </figure>
 
                 <div class="text-base text-gray-500 mt-4">
-                    {{ $post->body }}
+                    {!!$post->body!!}
                 </div>
             </div>
 
@@ -25,8 +29,12 @@
                     @foreach ($similares as $similar)
                         <li class="mb-4">
                             <a class="flex" href="{{ route('posts.show', $similar) }}">
-                                <img class="w-36 h-20 object-cover object-center" src="{{ Storage::url($similar->image->url) }}" alt="similar">
-                                <span class="w-full ml-2 color-gray-600">{{ $similar->name }}</span>
+                                @if ($similar->image)
+                                    <img class="w-5/12 h-28 object-cover object-center" src="{{ Storage::url($similar->image->url) }}" alt="similar">
+                                @else
+                                    <img class="w-5/12 h-28 object-cover object-center" src="{{ asset('img/default.svg') }}" alt="image">
+                                @endif
+                                <span class="w-7/12 ml-2 color-gray-600">{{ $similar->name }}</span>
                             </a>
                         </li>
                     @endforeach

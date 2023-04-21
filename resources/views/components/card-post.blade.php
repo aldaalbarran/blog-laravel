@@ -1,7 +1,12 @@
 @props(['post'])
 
 <article class="mb-8 bg-white shadow-lg rounded-lg overflow-hidden">
-    <img class="w-full h-72 object-cover object-center" src="{{ Storage::url($post->image->url) }}" alt="post">
+    @if ($post->image)
+        <img class="w-full h-72 object-cover object-center" src="{{ Storage::url($post->image->url) }}" alt="post">
+    @else
+        <img class="w-full h-72 object-cover object-center" src="{{ asset('img/default.svg') }}" alt="post">
+    @endif
+
     <div class="px-6 py-4">
         <h2 class="font-bold text-xl mb-2">
             <a href="{{ route('posts.show', $post) }}">
@@ -10,7 +15,7 @@
         </h2>
 
         <div class="text-gray-700 text-base">
-            {{ $post->extract }}
+            {!!$post->extract!!}
         </div>
 
         <div class="py-3">
